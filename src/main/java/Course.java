@@ -19,6 +19,12 @@ public class Course {
     public Course() {
     }
 
+    public Course(String courseName, DateTime academicStartDate, DateTime academicEndDate) {
+        this.courseName = courseName;
+        this.academicStartDate = academicStartDate;
+        this.academicEndDate = academicEndDate;
+    }
+
     public Course(String courseName, ArrayList<Student> courseStudents, ArrayList<Module> courseModules, DateTime academicStartDate, DateTime academicEndDate) {
         this.courseName = courseName;
         this.courseStudents = courseStudents;
