@@ -1,6 +1,6 @@
 import lombok.Getter;
 import lombok.Setter;
-import org.checkerframework.checker.units.qual.A;
+import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 
 import java.util.ArrayList;
@@ -8,7 +8,6 @@ import java.util.ArrayList;
 /**
  * @author FilthyHound
  * @id 18321516
- * @date 29/09/2021
  */
 
 public class Student {
@@ -24,7 +23,6 @@ public class Student {
     @Getter
     @Setter
     private long studentId;
-    private String userName;
     @Getter
     @Setter
     private ArrayList<Module> studentModules = new ArrayList<>();
@@ -52,7 +50,7 @@ public class Student {
     }
 
     public String getUserName() {
-        return getStudentName() + getStudentAge();
+        return StringUtils.deleteWhitespace(getStudentName()) + "_" + getStudentAge();
     }
 
     public void addModule(Module m) {
@@ -81,5 +79,11 @@ public class Student {
             studentCourses.remove(c);
             c.removeStudent(this);
         }
+    }
+
+    @Override
+    public String toString(){
+        return "{Name: " + getStudentName() + ", Age: " + getStudentAge() + ", ID: " + getStudentId()
+                + ", User Name: "+ getUserName() + ", DOB: " + getStudentDob() + "},\n";
     }
 }

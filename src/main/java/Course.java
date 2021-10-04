@@ -7,7 +7,6 @@ import java.util.ArrayList;
 /**
  * @author FilthyHound
  * @id 18321516
- * @date 29/09/2021
  */
 
 public class Course {
@@ -25,7 +24,8 @@ public class Course {
         this.academicEndDate = academicEndDate;
     }
 
-    public Course(String courseName, ArrayList<Student> courseStudents, ArrayList<Module> courseModules, DateTime academicStartDate, DateTime academicEndDate) {
+    public Course(String courseName, DateTime academicStartDate, DateTime academicEndDate,
+                  ArrayList<Student> courseStudents, ArrayList<Module> courseModules) {
         this.courseName = courseName;
         this.courseStudents = courseStudents;
         this.courseModules = courseModules;
@@ -59,5 +59,10 @@ public class Course {
             courseModules.remove(m);
             m.removeCourse(this);
         }
+    }
+
+    public String toString(){
+        return "Name: " + getCourseName() + ", Academic Start Date: " + getAcademicStartDate()
+                + ", Academic End Date: " + getAcademicEndDate() + "},\n";
     }
 }

@@ -1,13 +1,11 @@
 import lombok.Getter;
 import lombok.Setter;
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 
 /**
  * @author FilthyHound
  * @id 18321516
- * @date 29/09/2021
  */
 
 public class Module {
@@ -56,5 +54,10 @@ public class Module {
             moduleCourses.remove(c);
             c.removeModule(this);
         }
+    }
+
+    @Override
+    public String toString(){
+        return "{Name: " + getModuleName() + ", ID: " + getModuleId() +"},\n";
     }
 }
