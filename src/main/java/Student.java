@@ -11,24 +11,13 @@ import java.util.ArrayList;
  */
 
 public class Student {
-    @Getter
-    @Setter
-    private String studentName;
-    @Getter
-    @Setter
-    private int studentAge;
-    @Getter
-    @Setter
-    private DateTime studentDob;
-    @Getter
-    @Setter
-    private long studentId;
-    @Getter
-    @Setter
-    private ArrayList<Module> studentModules = new ArrayList<>();
-    @Getter
-    @Setter
-    private ArrayList<Course> studentCourses = new ArrayList<>();
+    @Getter @Setter private String studentName;
+    @Getter @Setter private int studentAge;
+    @Getter @Setter private DateTime studentDob;
+    @Getter @Setter private long studentId;
+    private String userName = "";
+    @Getter @Setter private ArrayList<Module> studentModules = new ArrayList<>();
+    @Getter @Setter private ArrayList<Course> studentCourses = new ArrayList<>();
 
     public Student() {
     }
@@ -50,7 +39,10 @@ public class Student {
     }
 
     public String getUserName() {
-        return StringUtils.deleteWhitespace(getStudentName()) + "_" + getStudentAge();
+        if (StringUtils.isBlank(userName)) {
+            userName = StringUtils.deleteWhitespace(getStudentName()) + "_" + getStudentAge();
+        }
+        return userName;
     }
 
     public void addModule(Module m) {
